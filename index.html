@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KO Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="static/js/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="static/js/slick/slick-theme.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="media\favicon.ico" type="image/x-icon">
+    <link rel="icon" href="media\favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <style>
+        body {
+            overflow: auto;
+        }
+
+        body.active {
+            overflow: hidden;
+        }
+
+        .zoom {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            left: 0;
+            top: 0;
+            z-index: 20;
+        }
+
+        .zoom.active {
+            display: block;
+        }
+
+        .zoom__body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .zoom__contnet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cross {
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        a:link {
+            color: rgb(255, 255, 255);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: rgb(255, 255, 255);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #c13b00;
+            ;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: #5E6D70;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        @media(max-width:1200px) {
+            .zoom__img {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <div class="zoom">
+        <div class="cross" onclick="closeZoom()">x</div>
+        <div class="zoom__body">
+            <div class="zoom__content">
+            </div>
+        </div>
+    </div>
+
+    <header class="pc">
+        <div class="header__logo">
+            <img src="media/logo.jpg" alt="">
+        </div>
+        <div class="header__links">
+            <div class="links__body">
+                <div class="link" onclick="scrollToSection('about-section')">Обо мне</div>
+                <div class="link" onclick="scrollToSection('portfolio-section')">Портфолио</div>
+                <div class="link" onclick="scrollToSection('services-section')">Услуги</div>
+            </div>
+        </div>
+        <div class="header__button">
+            <button class="button" onclick="scrollToSection('contacts-section')">Контакты</button>
+        </div>
+    </header>
+
+
+    <header class="mb">
+        <div class="header__content">
+            <div class="header__logo">
+                <img src="media/logo.jpg" alt="">
+            </div>
+            <div class="burger-menu" id="burger-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="header__menu">
+            <div class="header__menu-body">
+                <div class="header__link" onclick="scrollToSection('about-section')">Обо мне</div>
+                <div class="header__link" onclick="scrollToSection('portfolio-section')">Портфолио</div>
+                <div class="header__link" onclick="scrollToSection('services-section')">Услуги</div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="wrapper">
+        <div class="main-block">
+            <div class="main-text" style="display: flex; justify-content: center;">
+                <div>
+                    <p class="main__title">Профессиональный UX-UI Дизайнер</p>
+                    <p class="main__subtitle">Создаю великолепные 3d модели и дизайн</p>
+                    <p class="main__button"><button class="button"
+                            onclick="scrollToSection('contacts-section')">Связаться со мной</button></p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center;" class="main__img">
+                <img src="media/main.png" alt="" style="width: 30%;">
+            </div>
+        </div>
+        <h1 style="text-align: center;" id="portfolio-section">Мое Портфолио</h1>
+        <div class="gallery">
+            <div class="image" style='--bg: url(../../media/p1.jpg)' onclick="openZoom('media/p1.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p2.jpg)" onclick="openZoom('media/p2.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p3.jpg)" onclick="openZoom('media/p3.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p4.jpg)" onclick="openZoom('media/p4.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p5.jpg)" onclick="openZoom('media/p5.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p6.jpg)" onclick="openZoom('media/p6.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p7.jpg)" onclick="openZoom('media/p7.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p8.jpg)" onclick="openZoom('media/p8.jpg')" alt=""></div>
+            <div class="image" style="--bg: url(../../media/p9.jpg)" onclick="openZoom('media/p9.jpg')" alt=""></div>
+        </div>
+
+        <h1 style="text-align: center;" id="services-section">Мои Услуги</h1>
+        <div class="services slider mb" id="smb">
+            <div class="service">
+                <div class="service__body">
+                    <div class="service__image"><img src="media/s1.png" alt=""></div>
+                    <div class="service__title">3d Моделинг</div>
+                    <div class="service__description">
+                        <ul>
+                            <li>Создание 3d модели с 0 любой сложности</li>
+                            <li>Наложение текстур на 3d модель</li>
+                            <li>Рендеринг объектов и создание изображений</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="button" onclick="scrollToSection('contacts-section')">Узнать Цену</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service__body">
+                    <div class="service__image"><img src="media/s2.png" alt=""></div>
+                    <div class="service__title">Создание дизайна</div>
+                    <div class="service__description">
+                        <ul>
+                            <li>Создание логотипов</li>
+                            <li>Дизайн сайтов, баннеров, превью и др.</li>
+                            <li>Помощь в подборе палитры и стиля</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="button" onclick="scrollToSection('contacts-section')">Узнать Цену</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service__body">
+                    <div class="service__image"><img src="media/s3.png" alt=""></div>
+                    <div class="service__title">Верстка сайта</div>
+                    <div class="service__description">
+                        <ul>
+                            <li>html верстка сайта с 0</li>
+                            <li>написание своих css и scss стилей</li>
+                            <li>адаптивная верстка под все устройства</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="button" onclick="scrollToSection('contacts-section')">Узнать Цену</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="services pc">
+            <div class="service">
+                <div class="service__body">
+                    <div class="service__image"><img src="media/s1.png" alt=""></div>
+                    <div class="service__title">3d Моделинг</div>
+                    <div class="service__description">
+                        <ul>
+                            <li>Создание 3d модели с 0 любой сложности</li>
+                            <li>Наложение текстур на 3d модель</li>
+                            <li>Рендеринг объектов и создание изображений</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="button" onclick="scrollToSection('contacts-section')">Узнать Цену</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service__body">
+                    <div class="service__image"><img src="media/s2.png" alt=""></div>
+                    <div class="service__title">Создание дизайна</div>
+                    <div class="service__description">
+                        <ul>
+                            <li>Создание логотипов</li>
+                            <li>Дизайн сайтов, баннеров, превью и др.</li>
+                            <li>Помощь в подборе палитры и стиля</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="button" onclick="scrollToSection('contacts-section')">Узнать Цену</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service">
+                <div class="service__body">
+                    <div class="service__image"><img src="media/s3.png" alt=""></div>
+                    <div class="service__title">Верстка сайта</div>
+                    <div class="service__description">
+                        <ul>
+                            <li>html верстка сайта с 0</li>
+                            <li>написание своих css и scss стилей</li>
+                            <li>адаптивная верстка под все устройства</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center;">
+                        <button class="button" onclick="scrollToSection('contacts-section')">Узнать Цену</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center;">Используемые программы</h1>
+            <section class="logos-slider">
+                <div class="logos slider">
+                    <div class="logos-image">
+                        <img src="media/l1.jpg" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l2.png" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l3.png" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l4.png" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l5.png" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l6.png" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l7.png" alt="">
+                    </div>
+                    <div class="logos-image">
+                        <img src="media/l8.png" alt="">
+                    </div>
+                </div>
+            </section>
+
+
+            <h1 style="text-align: center;" id="about-section">Обо Мне</h1>
+            <div class="about">
+                <div class="about-container">
+                    <div class="left-block">
+                        <div class="left-block__img">
+                            <img src="media/about.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="right-block">
+                        <div class="right-block__title">
+                            Ошуркевич Кирилл
+                        </div>
+                        <div class="right-block__subtitle">
+                            3D-Дизайнер
+                        </div>
+                        <div class="right-block__description">
+                            Меня зовут Кирилл. Я 3D-дизайнер, создаю модели для игр уже на протяжение 6 лет. Я занимаюсь
+                            только полным пайплайном: созданием 3d модели, uv-карты, запекание карт и текстурированием
+                        </div>
+                        <div class="skills">
+                            <div class="skill">
+                                <span>Образование</span>
+                                <ul>
+                                    <li>Санкт-Петербургский
+                                        государственный университет
+                                        промышленных технологий и
+                                        дизайна
+                                        <p>2022 - 2026</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="skill">
+                                <span>Опыт работы</span>
+                                <ul>
+                                    <li>Fl.ru
+                                        <p>2019 - 2021</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="skill">
+                                <span>Знание языков</span>
+                                <ul>
+                                    <li>Русский</li>
+                                    <li>Английский</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 style="text-align: center;" id="contacts-section">Контакты</h1>
+            <div class="contacts">
+                <div class="contacts__body">
+                    <div class="contacts__body__wraps"
+                        style="display: flex; justify-content: center; margin-bottom: 10px;">
+                        <div>
+                            <div class="phone">
+                                <img src="media/phone.svg" alt=""> <span style="margin-left: 10px; color: white;"> <a href="tel:+79001111111">+7-999-0256258</a></span>
+                            </div>
+                            <div class="email">
+                                <img src="media/email.svg" alt=""> <span
+                                    style="margin-left: 10px; color: white;"><a href="mailto:k_osh@inbox.ru">k_osh@inbox.ru</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contacts__body__wraps"
+                        style="display: flex; justify-content: center; margin-bottom: 10px; margin-top: 15px;">
+                        <div class="MediaLinks">
+                            <img src="media/Telegram.svg" alt=""> <a href="https://t.me/lovefakers"> <span
+                                    style="margin-left: 5px; margin-right: 10px;">Telegram</span> </a>
+                            <img src="media/Vk.svg" alt=""> <a href="https://vk.com/kirillosh"> <span
+                                    style="margin-left: 5px; margin-right: 10px;">Вконтакте</span> </a>
+                            <img src="media/ArtStation.svg" alt=""> <a href="https://www.artstation.com/kirillosh">
+                                <span style="margin-left: 5px; margin-right: 10px;">ArtStation</span> </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts__body__send">
+                <div class="type-input-text">Имя: </div>
+                <form action="." class="contact-form-send">
+                    <input type="text" placeholder="Кирилл">
+                </form>
+                <div class="type-input-text">Фамилия: </div>
+                <form action="." class="contact-form-send">
+                    <input type="text" placeholder="Ошуркевич">
+                </form>
+                <div class="type-input-text">Контакты: </div>
+                <form action="." class="contact-form-send">
+                    <input type="text" placeholder="+7 999 555-55-55">
+                </form>
+                <div class="type-input-text">Описание: </div>
+                <form action="." class="contact-form-send">
+                    <textarea rows="4" cols="50" placeholder="Требуется сделать 3D машину в..."
+                        style="resize:vertical;"></textarea>
+                </form>
+                <div class="button_send">
+                    <button class="button_send_class">Отправить</button>
+                </div>
+
+            </div>
+    </div>
+    </div>
+
+    <footer style="display: flex; justify-content: center; margin-top: 20px;">
+        © 2024 Ошуркевич Кирилл. Все права защищены
+    </footer>
+    <script src="static\js\tgbot.js"></script>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/slick/slick.min.js"></script>
+    <script>
+        $(".logos").slick({
+            lazyLoad: 'ondemand',
+            slidesToShow: 7,
+            slidesToScroll: 1,
+            infinite: true
+        });
+
+        const scrollToSection = section => {
+
+            const targetSection = document.getElementById(section);
+            const displayHeaderMB = window.getComputedStyle(
+                document.querySelector('header.mb')
+            ).display
+
+            if (displayHeaderMB != 'none') {
+                const displayMenu = document.querySelector('.header__menu')
+                displayMenu.classList.contains('active') && toggleMenu()
+            }
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.image');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('visible');
+                        observer.unobserve(img);
+                    }
+                });
+            }, observerOptions);
+
+            images.forEach(image => {
+                observer.observe(image);
+            });
+        });
+
+        function toggleMenu() {
+            document.getElementById('burger-menu').classList.toggle('active')
+            document.querySelector('.header__menu').classList.toggle('active')
+            document.querySelector('.wrapper').classList.toggle('active')
+        }
+
+        document.getElementById('burger-menu')
+            .addEventListener('click', toggleMenu);
+
+
+        const openZoom = image => {
+            document.body.classList.add('active')
+            const zoomElement = document.querySelector('.zoom')
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            zoomElement.style.top = `${scrollTop}px`;
+            zoomElement.classList.add('active')
+            const img = `<img class="zoom__img" src="${image}" />`
+            document.querySelector('.zoom__content').innerHTML = img
+        }
+
+        const closeZoom = () => {
+            document.querySelector('.zoom__content').innerHTML = ''
+            document.body.classList.remove('active')
+            document.querySelector('.zoom').classList.remove('active')
+        }
+
+        $("#smb").slick({
+            lazyLoad: 'ondemand',
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true
+        });
+
+    </script>
+</body>
+
+</html>
